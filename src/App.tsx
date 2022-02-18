@@ -14,7 +14,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Deployed
+          Deployed 2
         </a>
       </header>
     </div>
