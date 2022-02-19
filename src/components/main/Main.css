@@ -1,0 +1,27 @@
+.main {
+  grid-area: main;
+  background-color: #1a1a1d;
+  color: rgb(226, 226, 226);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 60% 40%;
+  grid-template-areas:
+    "leftTop rightTop"
+    "leftBottom rightBottom";
+}
+
+.leftTop {
+  grid-area: leftTop;
+}
+
+.rightTop {
+  grid-area: rightTop;
+}
+
+.leftBottom {
+  grid-area: leftBottom;
+}
+
+.rightBottom {
+  grid-area: rightBottom;
+}
