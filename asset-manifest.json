@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/edit-distance-fe/static/css/main.073c9b0a.css",
-    "main.js": "/edit-distance-fe/static/js/main.6fde2cda.js",
+    "main.css": "/edit-distance-fe/static/css/main.c5be7864.css",
+    "main.js": "/edit-distance-fe/static/js/main.6dfe1abc.js",
     "static/js/787.0a406792.chunk.js": "/edit-distance-fe/static/js/787.0a406792.chunk.js",
-    "static/media/logo.svg": "/edit-distance-fe/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/edit-distance-fe/index.html",
-    "main.073c9b0a.css.map": "/edit-distance-fe/static/css/main.073c9b0a.css.map",
-    "main.6fde2cda.js.map": "/edit-distance-fe/static/js/main.6fde2cda.js.map",
+    "main.c5be7864.css.map": "/edit-distance-fe/static/css/main.c5be7864.css.map",
+    "main.6dfe1abc.js.map": "/edit-distance-fe/static/js/main.6dfe1abc.js.map",
     "787.0a406792.chunk.js.map": "/edit-distance-fe/static/js/787.0a406792.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.6fde2cda.js"
+    "static/css/main.c5be7864.css",
+    "static/js/main.6dfe1abc.js"
   ]
 }
