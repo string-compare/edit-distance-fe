@@ -4,7 +4,7 @@ import "./Header.css";
 export const Header = () => {
   return (
     <section className="header">
-      <h1>String Diff</h1>
+      <h1>It's Levenshtein... String Diff</h1>
     </section>
   );
 };
