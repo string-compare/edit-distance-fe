@@ -1,6 +1,6 @@
 import React from "react";
 import { StringEntry } from "../StringEntry";
-import { ResultBox } from "../StringResult/ResultBox";
+import { StringResult } from "../StringResult";
 import styles from "./Main.module.css";
 
 export const Main = () => {
@@ -13,10 +13,10 @@ export const Main = () => {
         <StringEntry title={"Expected String"} />
       </div>
       <div className={styles.leftBottom}>
-        <ResultBox title={"Generated Differences"} />
+        <StringResult title={"Generated Differences"} />
       </div>
       <div className={styles.rightBottom}>
-        <ResultBox title={"Expected Differences"} />
+        <StringResult title={"Expected Differences"} />
       </div>
     </div>
   );
