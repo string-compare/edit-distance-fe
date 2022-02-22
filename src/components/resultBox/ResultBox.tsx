@@ -1,5 +1,5 @@
 import React from "react";
-import "./ResultBox.css";
+import styles from "./ResultBox.module.css";
 
 interface PropTypes {
   title: string;
@@ -7,9 +7,9 @@ interface PropTypes {
 
 export const ResultBox = (props: PropTypes) => {
   return (
-    <div className="resultContainer">
+    <div className={styles.resultContainer}>
       <h3>{props.title}</h3>
-      <div className="resultBox"></div>
+      <div className={styles.resultBox}></div>
     </div>
   );
 };

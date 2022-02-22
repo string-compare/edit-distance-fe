@@ -1,17 +1,17 @@
 import React from "react";
-import "./StringEntryBox.css";
+import styles from "./StringEntryBox.module.css";
 interface PropTypes {
   title: string;
 }
 
 export const StringEntryBox = (props: PropTypes) => {
   return (
-    <section className="stringEntryContainer">
+    <section className={styles.stringEntryContainer}>
       <h3>{props.title}</h3>
       <input
         type="text"
         placeholder="Enter a string"
-        className="stringEntryBox"
+        className={styles.stringEntryBox}
       />
     </section>
   );
