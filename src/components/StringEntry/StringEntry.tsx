@@ -1,6 +1,5 @@
 import React from "react";
-import { SectionTitle } from "../shared";
-import { StringEntryLayout } from "./StringEntryLayout";
+import { SectionTitle, SectionLayout } from "../shared";
 import { StringEntryTextarea } from "./StringEntryTextarea";
 interface Props {
   title: string;
@@ -8,10 +7,10 @@ interface Props {
 
 const StringEntry: React.FC<Props> = ({ title }) => {
   return (
-    <StringEntryLayout>
+    <SectionLayout>
       <SectionTitle>{title}</SectionTitle>
       <StringEntryTextarea placeholder="Enter A String..." />
-    </StringEntryLayout>
+    </SectionLayout>
   );
 };
 

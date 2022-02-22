@@ -1,17 +1,17 @@
 import React from "react";
-import { SectionTitle } from "../shared";
+import { SectionTitle, SectionLayout } from "../shared";
 import { StringResultDisplay } from "./StringResultDisplay";
-import { StringResultLayout } from "./StringResultLayout";
 
 interface Props {
   title: string;
+  result?: string;
 }
 
-export const StringResult: React.FC<Props> = ({ title }) => (
-  <StringResultLayout>
+const StringResult: React.FC<Props> = ({ title, result }) => (
+  <SectionLayout>
     <SectionTitle>{title}</SectionTitle>
-    <StringResultDisplay></StringResultDisplay>
-  </StringResultLayout>
+    <StringResultDisplay>{result}</StringResultDisplay>
+  </SectionLayout>
 );
 
 export default StringResult;

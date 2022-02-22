@@ -1,6 +1,5 @@
 import React from "react";
-import { StringEntry } from "../StringEntry";
-import { StringResult } from "../StringResult";
+import { StringEntry, StringResult } from "../";
 import styles from "./Main.module.css";
 
 export const Main = () => {
