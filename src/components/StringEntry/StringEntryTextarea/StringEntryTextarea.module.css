@@ -1,0 +1,21 @@
+.textarea {
+  margin: 10px;
+  width: 90%;
+  height: 90%;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.textarea:focus {
+  outline: none !important;
+  border-color: #e6e6e6;
+  box-shadow: 0 0 4px #e6e6e6;
+  background-color: #e6e6e6;
+}
+
+.textarea:hover {
+  outline: none !important;
+  border-color: #eeeeee;
+  box-shadow: 0 0 4px #eeeeee;
+  background-color: #eeeeee;
+}
