@@ -1,9 +1,9 @@
 import React from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
 
 export const Header = () => {
   return (
-    <section className="header">
+    <section className={styles.header}>
       <h1>It's Levenshtein... String Diff</h1>
     </section>
   );

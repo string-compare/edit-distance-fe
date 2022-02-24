@@ -1,9 +1,9 @@
 import React from "react";
-import "./Footer.css";
+import styles from "./Footer.module.css";
 
 export const Footer = () => {
   return (
-    <section className="footer">
+    <section className={styles.footer}>
       <h3>
         Authors:{" "}
         <a href="https://github.com/cerebrium" target="_blank">

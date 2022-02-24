@@ -1,12 +1,12 @@
 import React from "react";
-import "./Sidebar.css";
+import styles from "./Sidebar.module.css";
 
 export const Sidebar = () => {
   return (
-    <div className="sidebar">
-      <label className="switch">
+    <div className={styles.sidebar}>
+      <label className={styles.switch}>
         <input type="checkbox" name="" id="" />
-        <span className="slider round"></span>
+        <span className={`${styles.slider} ${styles.round}`}></span>
       </label>
     </div>
   );

@@ -1,22 +1,21 @@
 import React from "react";
-import { StringEntryBox } from "../entryBox/StringEntryBox";
-import { ResultBox } from "../resultBox/ResultBox";
-import "./Main.css";
+import { StringEntry, StringResult } from "../";
+import styles from "./Main.module.css";
 
 export const Main = () => {
   return (
-    <div className="main">
-      <div className="leftTop">
-        <StringEntryBox title={"Generated String"} />
+    <div className={styles.main}>
+      <div className={styles.leftTop}>
+        <StringEntry title={"Generated String"} />
       </div>
-      <div className="rightTop">
-        <StringEntryBox title={"Expected String"} />
+      <div className={styles.rightTop}>
+        <StringEntry title={"Expected String"} />
       </div>
-      <div className="leftBottom">
-        <ResultBox title={"Generated Differences"} />
+      <div className={styles.leftBottom}>
+        <StringResult title={"Generated Differences"} />
       </div>
-      <div className="rightBottom">
-        <ResultBox title={"Expected Differences"} />
+      <div className={styles.rightBottom}>
+        <StringResult title={"Expected Differences"} />
       </div>
     </div>
   );
