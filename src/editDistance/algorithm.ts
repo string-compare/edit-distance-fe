@@ -1,6 +1,6 @@
-import { DpTable, DpRow, ErrorItem, ErrorGroup, Operation } from "../types";
+import { DpTable, DpRow, ErrorItem, ErrorGroup, Operation } from "./types";
 
-export function main(genStr: string, expStr: string) {
+export default function main(genStr: string, expStr: string) {
   const dpTable = generateDpTable(genStr, expStr);
   const errorItemArray = generateErrorItemArray(dpTable, genStr, expStr);
   return generateErrorGroupArray(errorItemArray);
