@@ -14,15 +14,22 @@ const ThemeContext = React.createContext<ThemeResult>([
   },
 ]);
 
-const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider: React.FC = ({ children }) => {
   const [mode, setMode] = useState<"light" | "dark">("dark");
 
   const trigger = () => {
     setMode(() => (mode === "light" ? "dark" : "light"));
   };
+
   return (
     <ThemeContext.Provider value={[trigger, { mode }]}>
       {children}
     </ThemeContext.Provider>
   );
+};
+
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+
+  return context;
 };
