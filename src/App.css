@@ -3,8 +3,6 @@
   width: 100vw;
   text-align: center;
   display: grid;
-  background-color: #1a1a1d;
-  color: rgb(226, 226, 226);
   font-family: "Noto Serif", serif;
   grid-template-columns: 100vw;
   grid-template-rows: 100px 80vh 1fr;
