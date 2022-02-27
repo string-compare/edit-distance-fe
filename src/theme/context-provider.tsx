@@ -13,7 +13,6 @@ export const ThemeProvider: React.FC = ({ children }) => {
   const [mode, setMode] = useState<"appLight" | "appDark">("appDark");
 
   const trigger = () => {
-    console.log("trigger, triggered");
     setMode(() => (mode === "appLight" ? "appDark" : "appLight"));
   };
 
