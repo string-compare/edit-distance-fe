@@ -3,49 +3,22 @@ import React, { useContext, useState } from "react";
 type ThemeResult = [
   () => void,
   {
-    mode: "light" | "dark";
-    style: {
-      backgroundColor: string;
-      color: string;
-    };
+    mode: "appLight" | "appDark";
   }
 ];
 
-const ThemeContext = React.createContext<ThemeResult>([
-  () => {},
-  {
-    mode: "dark",
-    style: {
-      backgroundColor: "#000",
-      color: "#fff",
-    },
-  },
-]);
+const ThemeContext = React.createContext<ThemeResult | undefined>(undefined);
 
 export const ThemeProvider: React.FC = ({ children }) => {
-  const [mode, setMode] = useState<"light" | "dark">("dark");
-  const [style, setStyle] = useState({
-    backgroundColor: "#000",
-    color: "#fff",
-  });
+  const [mode, setMode] = useState<"appLight" | "appDark">("appDark");
 
   const trigger = () => {
-    setMode(() => (mode === "light" ? "dark" : "light"));
-    if (mode === "light") {
-      setStyle({
-        backgroundColor: "#fff",
-        color: "#000",
-      });
-    } else {
-      setStyle({
-        backgroundColor: "#000",
-        color: "#fff",
-      });
-    }
+    console.log("trigger, triggered");
+    setMode(() => (mode === "appLight" ? "appDark" : "appLight"));
   };
 
   return (
-    <ThemeContext.Provider value={[trigger, { mode, style }]}>
+    <ThemeContext.Provider value={[trigger, { mode }]}>
       {children}
     </ThemeContext.Provider>
   );
@@ -53,6 +26,10 @@ export const ThemeProvider: React.FC = ({ children }) => {
 
 export const useThemeProvider = () => {
   const context = useContext(ThemeContext);
+
+  if (context === undefined) {
+    throw new Error("useThemeProvider must be used in the ThemeProvider");
+  }
 
   return context;
 };

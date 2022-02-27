@@ -10,6 +10,9 @@ export const Main = () => {
 
   const handleOnSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    if (genString && expString) {
+      trigger(genString, expString);
+    }
   };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -22,7 +25,7 @@ export const Main = () => {
 
   return (
     <div className={styles.main}>
-      <form>
+      <form className={styles.topForm}>
         <div className={styles.leftTop}>
           <StringEntry
             name="genString"
@@ -41,14 +44,27 @@ export const Main = () => {
             }
           />
         </div>
-        <input type="submit" value="Submit" onClick={handleOnSubmit} />
+        <div className={styles.submitContainer}>
+          <input
+            type="submit"
+            value="Submit"
+            className={styles.submit}
+            onClick={handleOnSubmit}
+          />
+        </div>
       </form>
-      <div className={styles.leftBottom}>
-        <StringResult title={"Generated Differences"} />
-      </div>
-      <div className={styles.rightBottom}>
-        <StringResult title={"Expected Differences"} />
-      </div>
+      {result.length ? (
+        <>
+          <div className={styles.leftBottom}>
+            <StringResult title={"Generated Differences"} />
+          </div>
+          <div className={styles.rightBottom}>
+            <StringResult title={"Expected Differences"} />
+          </div>
+        </>
+      ) : isLoading ? (
+        <div className={styles.loading}>Loading...</div>
+      ) : null}
     </div>
   );
 };
