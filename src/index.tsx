@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { EditDistanceProvider } from "./editDistance/context-provider";
+import { ThemeProvider } from "./theme/context-provider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <EditDistanceProvider>
+    <ThemeProvider>
       <App />
-    </EditDistanceProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

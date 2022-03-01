@@ -1,22 +1,40 @@
 .main {
   grid-area: main;
-  background-color: #1a1a1d;
-  color: rgb(226, 226, 226);
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 60% 40%;
   grid-template-areas:
-    "leftTop rightTop"
+    "topForm topForm"
     "leftBottom rightBottom";
 }
 
-.leftTop {
+/* form */
+
+.topForm {
+  grid-area: topForm;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 30px;
+  grid-template-areas:
+    "leftTop rightTop"
+    "submit submit";
+}
+
+.topForm .leftTop {
   grid-area: leftTop;
 }
 
-.rightTop {
+.topForm .rightTop {
   grid-area: rightTop;
 }
+
+.topForm .submitContainer {
+  grid-area: submit;
+  margin: 0 auto;
+}
+
+/* bottom boxes */
 
 .leftBottom {
   grid-area: leftBottom;
