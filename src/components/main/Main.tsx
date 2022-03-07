@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { StringEntry, StringResult } from "../";
 import styles from "./Main.module.css";
-import { useEditDistance } from "../../editDistance/context-provider";
+import { useEditDistance } from "../../editDistance/useEditDistance";
 
 export const Main = () => {
-  const [trigger, { isLoading, result }] = useEditDistance();
+  const [trigger, { isLoading, result, error }] = useEditDistance();
   const [genString, setGenString] = useState<string>();
   const [expString, setExpString] = useState<string>();
 
@@ -23,9 +23,13 @@ export const Main = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("result: ", result, typeof result);
+  }, [result]);
+
   return (
     <div className={styles.main}>
-      <form className={styles.topForm}>
+      <form className={styles.topForm} onSubmit={handleOnSubmit}>
         <div className={styles.leftTop}>
           <StringEntry
             name="genString"
@@ -45,12 +49,7 @@ export const Main = () => {
           />
         </div>
         <div className={styles.submitContainer}>
-          <input
-            type="submit"
-            value="Submit"
-            className={styles.submit}
-            onClick={handleOnSubmit}
-          />
+          <input type="submit" value="Submit" className={styles.submit} />
         </div>
       </form>
       {result.length ? (

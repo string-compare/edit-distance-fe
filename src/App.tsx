@@ -12,9 +12,7 @@ function App() {
   return (
     <div className={mode}>
       <Header />
-      <EditDistanceProvider>
-        <Main />
-      </EditDistanceProvider>
+      <Main />
       <Sidebar />
       <Footer />
     </div>
