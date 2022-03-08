@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { StringEntry, StringResult } from "../";
 import styles from "./Main.module.css";
-import { useEditDistance } from "../../editDistance/useEditDistance";
+import { useWebWorker } from "../../webworker/useWebworker";
+import { ErrorGroup } from "functional_edit_distance/build/src/types";
+
+function useEditDistance() {
+  const worker = new Worker(
+    new URL("../../webworker/workers/editDistance.worker.ts", import.meta.url)
+  );
+  return useWebWorker<
+    { genString: string; expString: string },
+    Array<ErrorGroup>
+  >(worker);
+}
 
 export const Main = () => {
-  const [trigger, { isLoading, result, error }] = useEditDistance();
   const [genString, setGenString] = useState<string>();
   const [expString, setExpString] = useState<string>();
+  const [trigger, { isLoading, result, error }] = useEditDistance();
 
   const handleOnSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (genString && expString) {
-      trigger(genString, expString);
+      trigger({ genString, expString });
     }
   };
 
@@ -22,10 +33,6 @@ export const Main = () => {
       setExpString(e.currentTarget.value);
     }
   };
-
-  useEffect(() => {
-    console.log("result: ", result, typeof result);
-  }, [result]);
 
   return (
     <div className={styles.main}>
@@ -52,7 +59,7 @@ export const Main = () => {
           <input type="submit" value="Submit" className={styles.submit} />
         </div>
       </form>
-      {result.length ? (
+      {result?.length ? (
         <>
           <div className={styles.leftBottom}>
             <StringResult title={"Generated Differences"} />
