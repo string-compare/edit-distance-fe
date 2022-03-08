@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Header.module.css";
-import { useEditDistance } from "../../editDistance/context-provider";
 
 export const Header = () => {
   return (
