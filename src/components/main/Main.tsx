@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { StringEntry, StringResult } from "../";
 import styles from "./Main.module.css";
 import { useWebWorker } from "../../webworker/useWebworker";
