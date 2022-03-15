@@ -1,21 +1,11 @@
 import "./App.css";
-import { Header } from "./components/header/Header";
-import { Main } from "./components/main/Main";
-import { Sidebar } from "./components/sidebar/Sidebar";
-import { Footer } from "./components/footer/Footer";
+import { AppLayout } from "./components/layouts";
 import { useThemeProvider } from "./theme/context-provider";
 
 function App() {
   const [_, { mode }] = useThemeProvider();
 
-  return (
-    <div className={mode}>
-      <Header />
-      <Main />
-      <Sidebar />
-      <Footer />
-    </div>
-  );
+  return <AppLayout />;
 }
 
 export default App;

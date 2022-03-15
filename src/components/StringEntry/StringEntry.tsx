@@ -4,10 +4,11 @@ import { StringEntryTextarea } from "./StringEntryTextarea";
 interface Props {
   title: string;
   name: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  // onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const StringEntry: React.FC<Props> = ({ title, name, onChange }) => {
+const StringEntry: React.FC<Props> = ({ title, name }) => {
+  const onChange = () => console.log("change");
   return (
     <SectionLayout>
       <SectionTitle>{title}</SectionTitle>

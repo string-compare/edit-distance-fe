@@ -1,4 +1,4 @@
-import { main } from "functional_edit_distance";
+import { edit_distance } from "functional_edit_distance";
 import { ErrorGroup } from "functional_edit_distance/build/src/types";
 
 const editDistance = (
@@ -6,7 +6,7 @@ const editDistance = (
   expStr: string
 ): Promise<Array<ErrorGroup>> =>
   new Promise((resolve, reject) => {
-    resolve(main(genStr, expStr));
+    resolve(edit_distance(genStr, expStr));
   });
 
 onmessage = function (event) {
