@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { StringEntry, StringResult } from "../";
+import { StringEntry } from "../";
 import styles from "./Main.module.css";
 import { useWebWorker } from "../../webworker/useWebworker";
 import { ErrorGroup } from "functional_edit_distance/build/src/types";
@@ -75,12 +75,12 @@ export const Main = () => {
       </form>
       {result?.length ? (
         <>
-          <div className={styles.leftBottom}>
+          {/* <div className={styles.leftBottom}>
             <StringResult title={"Generated Differences"} />
           </div>
           <div className={styles.rightBottom}>
             <StringResult title={"Expected Differences"} />
-          </div>
+          </div> */}
         </>
       ) : isLoading ? (
         <div className={styles.loading}>Loading...</div>

@@ -1,19 +1,30 @@
 import React from "react";
-import styles from "./Footer.module.css";
+import styled from "styled-components";
+import { Authors } from "./components";
 
-export const Footer = () => {
+const Container = styled.section`
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AUTHORS = [
+  { githubUrl: "https://github.com/cerebrium", name: "Nick Shankland" },
+  {
+    githubUrl: " https://github.com/thewordisbird",
+    name: "Justin Bird",
+  },
+];
+
+const Footer: React.FC = () => {
   return (
-    <section className={styles.footer}>
-      <h3>
-        Authors:{" "}
-        <a href="https://github.com/cerebrium" target="_blank">
-          Nick Shankland
-        </a>{" "}
-        &&{" "}
-        <a href="https://github.com/thewordisbird" target="_blank">
-          Justin Bird
-        </a>
-      </h3>
-    </section>
+    <Container>
+      <Authors authors={AUTHORS} />
+    </Container>
   );
 };
+
+export default Footer;

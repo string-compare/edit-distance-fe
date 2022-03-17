@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TwoColLayoutForm from "./TwoColLayoutForm";
 import { Header } from "../header";
 import { StringEntry } from "../StringEntry";
+import { Footer } from "../footer";
 
 const Container = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ const AppLayout: React.FC = () => (
       left={<StringEntry title="Generated String" name="genString" />}
       right={<StringEntry title="Expected String" name="expString" />}
     />
+    <Footer />
   </Container>
 );
 

@@ -1,22 +1,20 @@
 import React from "react";
 import styles from "./Header.module.css";
-import { useThemeProvider } from "../../theme/context-provider";
+import styled from "styled-components";
 
 const Header: React.FC = () => {
-  const [trigger, { mode }] = useThemeProvider();
-
-  const handleClick = () => {
-    trigger();
-  };
+  const Container = styled.section`
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  `;
 
   return (
-    <section className={styles.header}>
+    <Container>
       <h1>String Compare</h1>
-      <label className={styles.switch}>
-        <input type="checkbox" name="" id="" onClick={handleClick} />
-        <span className={`${styles.slider} ${styles.round}`}></span>
-      </label>
-    </section>
+    </Container>
   );
 };
 
