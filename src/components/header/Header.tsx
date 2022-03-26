@@ -1,19 +1,30 @@
-import React from "react";
-import styles from "./Header.module.css";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import { ThemeToggle } from './components';
+const Container = styled.section`
+  widht: 100%;
+  display: flex;
+`;
+
+const Title = styled.div`
+  justify-self: center;
+  margin: auto;
+`;
+
+const Toggle = styled.div`
+  justify-self: end;
+  margin: auto 10px auto 0;
+`;
 
 const Header: React.FC = () => {
-  const Container = styled.section`
-    grid-area: header;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  `;
-
   return (
     <Container>
-      <h1>String Compare</h1>
+      <Title>
+        <h1>String Compare</h1>
+      </Title>
+      <Toggle>
+        <ThemeToggle />
+      </Toggle>
     </Container>
   );
 };

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import styles from "./StringEntryTextarea.module.css";
-import { ErrorGroup } from "functional_edit_distance/build/src/types";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+// import styles from './StringEntryTextarea.module.css';
+import { ErrorGroup } from 'functional_edit_distance/build/src/types';
 
 const Container = styled.textarea`
   resize: none;
-  margin: 10px;
-  width: 90%;
-  height: 90%;
-  border-radius: 0.5rem;
-  border: none;
+  // margin: 10px;
+  width: 100%;
+  height: 100%;
+  // border-radius: 0.5rem;
+  border: 1px solid black;
 
   &:focus {
     outline: none !important;
@@ -28,30 +28,24 @@ const Container = styled.textarea`
 
 // extend textarea types
 type Props = {
-  // placeholder: string;
-  // name: string;
-  //onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  errors: Array<ErrorGroup>;
+  placeholder: string;
+  name: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  errors?: Array<ErrorGroup>;
 };
 
-const StringEntryTextarea: React.FC<Props> = (
-  {
-    // placeholder,
-    //onChange,
-    // name,
-  }
-) => {
+const StringEntryTextarea: React.FC<Props> = ({
+  placeholder,
+  onChange,
+  name,
+  errors,
+}) => {
   const [value, setValue] = useState<string | undefined>();
 
   useEffect(() => {}, []);
 
   return (
-    <Container
-      placeholder={placeholder}
-      className={styles.textarea}
-      name={name}
-      onChange={onChange}
-    />
+    <Container placeholder={placeholder} name={name} onChange={onChange} />
   );
 };
 
