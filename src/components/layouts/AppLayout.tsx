@@ -1,10 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import TwoColLayoutForm from './TwoColLayoutForm';
-import { Header } from '../header';
-import { StringEntry } from '../StringEntry';
-import { Footer } from '../footer';
-import { Button } from '../shared';
+import React from "react";
+import styled from "styled-components";
+import { Header } from "../header";
+import { Footer } from "../Footer";
 
 const Container = styled.div`
   display: flex;
@@ -13,18 +10,10 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const AppLayout: React.FC = () => (
+const AppLayout: React.FC = ({ children }) => (
   <Container>
     <Header />
-    <TwoColLayoutForm
-      left={<StringEntry title="Generated String" name="genString" />}
-      right={
-        <>
-          <StringEntry title="Expected String" name="expString" />
-          <Button>Find Differences</Button>
-        </>
-      }
-    />
+    {children}
     <Footer />
   </Container>
 );

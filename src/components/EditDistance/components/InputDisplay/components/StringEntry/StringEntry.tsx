@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { SectionTitle, SectionLayout } from '../shared';
-import { StringEntryTextarea } from './StringEntryTextarea';
+import React from "react";
+import styled from "styled-components";
+import { SectionTitle, SectionLayout } from "../../../../../shared";
+import { StringEntryTextarea } from "./StringEntryTextarea";
 
 const Container = styled.div`
   display: flex;
@@ -15,11 +15,11 @@ const Container = styled.div`
 interface Props {
   title: string;
   name: string;
-  // onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const StringEntry: React.FC<Props> = ({ title, name }) => {
-  const onChange = () => console.log('change');
+  const onChange = () => console.log("change");
   return (
     <Container>
       <h3>{title}</h3>

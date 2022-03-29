@@ -18,7 +18,6 @@ export function useWebWorker<P, D>(worker: Worker): Result<P, D> {
   const workerRef = useRef<Worker>();
 
   useEffect(() => {
-    console.log("setting worker");
     workerRef.current = worker;
   }, [workerRef]);
 

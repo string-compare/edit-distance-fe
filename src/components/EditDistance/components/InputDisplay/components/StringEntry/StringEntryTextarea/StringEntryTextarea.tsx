@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 // import styles from './StringEntryTextarea.module.css';
-import { ErrorGroup } from 'functional_edit_distance/build/src/types';
+import { ErrorGroup } from "functional_edit_distance/build/src/types";
 
 const Container = styled.textarea`
   resize: none;
-  // margin: 10px;
+  margin: 10px;
   width: 100%;
   height: 100%;
-  // border-radius: 0.5rem;
+  border-radius: 0.5rem;
   border: 1px solid black;
 
   &:focus {

@@ -1,36 +1,29 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 type Props = {
   left: React.ReactNode;
   right: React.ReactNode;
-  submit: React.ReactNode;
 };
 
 const Container = styled.div`
   display: flex;
-  align-items: center;
+  align-items: stretch;
 `;
 
-const Form = styled.form`
+const Column = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  margin: 20px;
+  gap: 10px;
 `;
 
-const FormGroup = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const TwoColLayoutForm: React.FC<Props> = ({ left, right, submit }) => (
-  <Form>
-    <FormGroup>
-      {left}
-      {right}
-    </FormGroup>
-    {submit}
-  </Form>
+const TwoColLayout: React.FC<Props> = ({ left, right }) => (
+  <Container>
+    <Column>{left}</Column>
+    <Column>{right}</Column>
+  </Container>
 );
 
-export default TwoColLayoutForm;
+export default TwoColLayout;

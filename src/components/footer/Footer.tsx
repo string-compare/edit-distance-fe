@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Authors } from './components';
+import React from "react";
+import styled from "styled-components";
+import { Authors } from "./components";
 
 const Container = styled.section`
   width: 100%;
@@ -13,10 +13,10 @@ const Container = styled.section`
 `;
 
 const AUTHORS = [
-  { githubUrl: 'https://github.com/cerebrium', name: 'Nick Shankland' },
+  { githubUrl: "https://github.com/cerebrium", name: "Nick Shankland" },
   {
-    githubUrl: ' https://github.com/thewordisbird',
-    name: 'Justin Bird',
+    githubUrl: " https://github.com/thewordisbird",
+    name: "Justin Bird",
   },
 ];
 
