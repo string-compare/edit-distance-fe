@@ -12,14 +12,25 @@ const Container = styled.section`
   gap: 0.5rem;
 `;
 
+// TODO: key error because of ampersand inseration
 const Authors: React.FC<Props> = ({ authors }) => (
   <Container>
     {authors.map((author, idx, arr) => {
       if (idx === arr.length - 1)
-        return <Author name={author.name} githubUrl={author.githubUrl} />;
+        return (
+          <Author
+            key={author.githubUrl}
+            name={author.name}
+            githubUrl={author.githubUrl}
+          />
+        );
       return (
         <>
-          <Author name={author.name} githubUrl={author.githubUrl} />
+          <Author
+            key={author.githubUrl}
+            name={author.name}
+            githubUrl={author.githubUrl}
+          />
           &#38;&#38;{' '}
         </>
       );

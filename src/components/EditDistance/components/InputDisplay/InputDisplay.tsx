@@ -1,30 +1,16 @@
-import React, { useState } from "react";
-import TwoColLayout from "../../../layouts/TwoColLayout";
-import { Button } from "../../../shared";
-import { StringEntry } from "./components/StringEntry";
-import { genString as gen, expString as exp } from "../../../../mock";
+import React, { useState } from 'react';
+import { useEditDistance } from '../../../context/EditDistanceProvider';
+import TwoColLayout from '../../../layouts/TwoColLayout';
+import { Button } from '../../../shared';
+import { StringEntry } from './components/StringEntry';
+// import { genString as gen, expString as exp } from '../../../../mock';
 
-type Props = {
-  trigger: (genString: string, expString: string) => void;
-};
-const InputDisplay: React.FC<Props> = ({ trigger }) => {
-  const [genString, setGenString] = useState<string>(gen);
-  const [expString, setExpString] = useState<string>(exp);
-
-  const handleOnSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    // if (isLoading) {
-    //   terminate();
-    //   return;
-    // }
-    if (genString && expString) {
-      trigger(genString, expString);
-    }
-  };
+const InputDisplay: React.FC = () => {
+  const { setGenString, setExpString, handleSubmit } = useEditDistance();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
-    if (e.target.name === "genString") {
+    if (e.target.name === 'genString') {
       setGenString(e.currentTarget.value);
     } else {
       setExpString(e.currentTarget.value);
@@ -36,7 +22,7 @@ const InputDisplay: React.FC<Props> = ({ trigger }) => {
         <StringEntry
           title="Generated String"
           name="genString"
-          onChange={handleOnChange}
+          onChange={(e) => handleOnChange(e)}
         />
       }
       right={
@@ -44,9 +30,9 @@ const InputDisplay: React.FC<Props> = ({ trigger }) => {
           <StringEntry
             title="Expected String"
             name="expString"
-            onChange={handleOnChange}
+            onChange={(e) => handleOnChange(e)}
           />
-          <Button onClick={handleOnSubmit}>Find Differences</Button>
+          <Button onClick={handleSubmit}>Find Differences</Button>
         </>
       }
     />
