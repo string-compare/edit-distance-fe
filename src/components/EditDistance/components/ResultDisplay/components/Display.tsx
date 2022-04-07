@@ -1,21 +1,21 @@
-import { ErrorGroup } from 'functional_edit_distance/build/src/types';
-import React from 'react';
-import styled from 'styled-components';
-import { useEditDistance } from '../../../../context/EditDistanceProvider';
+import { ErrorGroup } from "functional_edit_distance/build/src/types";
+import React from "react";
+import styled from "styled-components";
+import { useEditDistance } from "../../../../context/EditDistanceProvider";
 
-const findHighlightColor = (operation: string, output: 'gen' | 'exp') => {
+const findHighlightColor = (operation: string, output: "gen" | "exp") => {
   switch (operation) {
-    case 'insert':
-      return output === 'gen' ? 'green' : 'red';
+    case "insert":
+      return output === "gen" ? "green" : "red";
 
-    case 'delete':
-      return output === 'gen' ? 'red' : 'green';
+    case "delete":
+      return output === "gen" ? "red" : "green";
 
-    case 'replace':
-      return 'yello';
+    case "replace":
+      return "yellow";
 
     default:
-      return 'none';
+      return "none";
   }
 };
 
@@ -30,39 +30,84 @@ const Highlight = styled.span<{ color: string }>`
 `;
 
 type Props = {
-  output: 'gen' | 'exp';
+  output: "gen" | "exp";
 };
 
 const Display: React.FC<Props> = ({ output }) => {
   const { genString, expString, result } = useEditDistance();
 
-  const resultString = output === 'gen' ? genString : expString;
+  const resultString = output === "gen" ? genString : expString;
 
-  console.log('Results', result);
+  console.log("Results", result);
 
   const highlightResult = () => {
     if (!result || !resultString) return <></>;
 
-    let highlightedResult = <></>;
+    // let highlightedResult = <></>;
 
-    result.forEach((r) => {
-      const indicies = output === 'gen' ? r.genIndices : r.expIndices;
-      const startIdx = indicies[0];
-      const endIdx = indicies[indicies.length - 1];
-      const highlightColor = findHighlightColor(r.operation, output);
+    // result.forEach((r) => {
+    //   const indicies = output === 'gen' ? r.genIndices : r.expIndices;
+    //   const startIdx = indicies[0];
+    //   const endIdx = indicies[indicies.length - 1];
+    //   const highlightColor = findHighlightColor(r.operation, output);
 
-      highlightedResult = (
+    //   highlightedResult = (
+    //     <>
+    //       {highlightedResult}
+    //       {resultString.slice(0, startIdx)}
+    //       <Highlight color={highlightColor}>
+    //         {resultString.slice(startIdx, endIdx + 1)}
+    //       </Highlight>
+    //     </>
+    //   );
+    // });
+    let offset = 0;
+    const highlight = result.reduce((acc, cur, idx, arr) => {
+      const startErrIdx = (idx === 0 ? 0 : arr[idx - 1].endIndex) + offset;
+      const prefix = resultString.slice(startErrIdx, cur.startIndex); // t
+      const errorString =
+        cur.operation === "insert"
+          ? cur.errorString
+          : `${resultString.slice(cur.startIndex, cur.endIndex)}`; // e
+
+      console.log("opertatoin: ", cur.operation);
+      if (cur.operation === "insert") {
+        console.log("increment offset start: ", offset);
+        offset += cur.errorString.length;
+        console.log("increment offset end: ", offset);
+      }
+
+      console.log("error string: ", errorString, "offset: ", offset);
+
+      const jsx = (
         <>
-          {highlightedResult}
-          {resultString.slice(0, startIdx)}
-          <Highlight color={highlightColor}>
-            {resultString.slice(startIdx, endIdx + 1)}
+          {acc}
+          {prefix}
+          <Highlight color={findHighlightColor(cur.operation, output)}>
+            {errorString}
           </Highlight>
         </>
       );
-    });
 
-    return highlightedResult;
+      // console.log(jsx);
+
+      return jsx;
+    }, <></>);
+
+    const suffix = (
+      <>
+        {resultString.slice(
+          result[result.length - 1].endIndex - offset,
+          resultString.length
+        )}
+      </>
+    );
+    return (
+      <>
+        {highlight}
+        {suffix}
+      </>
+    );
   };
 
   // const HighlightedResult = () => React.createElement(highlightResult());
